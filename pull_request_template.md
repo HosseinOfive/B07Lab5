@@ -10,7 +10,7 @@
   - added this feature
  
 ## Self review check list
-[] Does the code comply properly
-[] Does the code does what it is supposed to do
-[] Is the code readbale and properly commented
+  [] Does the code comply properly
+  [] Does the code does what it is supposed to do
+  [] Is the code readable and properly commented
   
