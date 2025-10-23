@@ -1,4 +1,4 @@
-
+import java.awt.Point;
 
 public class Rectangle  {
 
@@ -9,7 +9,7 @@ public class Rectangle  {
 		return (p1.x * p2.x) + (p1.y * p2.y);
 	}
 	
-	public Point[] getClosestPts(Point a, Point b, Point c, Point d) {
+	public static Point[] getClosestPts(Point a, Point b, Point c, Point d) {
 		
 		// Returns an array of size 2, representing the two closest points to point A (from b,c,d)
 		Point[] closestPts = new Point[2];
@@ -66,7 +66,7 @@ public class Rectangle  {
 			Point side1 = new Point(pts[i].x - closestPts[0].x, pts[i].y - closestPts[0].y); // side1 is pts[i] to closestPts[0]
 			Point side2 = new Point(pts[i].x - closestPts[1].x, pts[i].y - closestPts[1].y); // side2 is pts[i] to closestPts[1]
 			
-			if (dotProduct(side1, side2) > epsilon) {
+			if (dotProduct(side1, side2) > epsilon) { // Non-right angle
 				throw new Exception("Not a rectangle!");
 			}
 			
@@ -92,7 +92,10 @@ public class Rectangle  {
 	}
 	
 	public double computePerimeter() {
-		return p1.distance(p2) + p2.distance(p3) + p3.distance(p4) + p4.distance(p1);
+		
+		Point[] closestPts = getClosestPts(p1, p2, p3, p4); // Closest pts to p1
+		return (p1.distance(closestPts[0]) + p1.distance(closestPts[1])) * 2.0;
+		
 	}
 	
 }
