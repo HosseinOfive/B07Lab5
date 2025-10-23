@@ -1,4 +1,4 @@
-package lab4;
+
 
 public class Triangle {
 	Point A;
