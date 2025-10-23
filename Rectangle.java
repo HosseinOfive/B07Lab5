@@ -1,4 +1,4 @@
-import java.awt.Point;
+
 
 public class Rectangle  {
 
@@ -81,7 +81,22 @@ public class Rectangle  {
 	
 	public boolean isSquare() {
 		// Angles already verified by constructor, just need to verify equal lengths
-		return (p1.distance(p2) == p2.distance(p3) && p1.distance(p2) == p3.distance(p4) && p1.distance(p2) == p4.distance(p1));
+		
+		Point[] closestPtsToP1 = getClosestPts(p1, p2, p3, p4);
+		Point[] closestPtsToP2 = getClosestPts(p2, p1, p3, p4);
+		Point[] closestPtsToP3 = getClosestPts(p3, p2, p1, p4);
+		Point[] closestPtsToP4 = getClosestPts(p4, p2, p3, p1);
+		if (p1.distance(closestPtsToP1[0]) - p1.distance(closestPtsToP1[1]) > epsilon) {
+			return false;
+		} else if (p2.distance(closestPtsToP2[0]) - p2.distance(closestPtsToP2[1]) > epsilon) {
+			return false;
+		} else if (p3.distance(closestPtsToP3[0]) - p3.distance(closestPtsToP3[1]) > epsilon) {
+			return false;
+		} else if (p4.distance(closestPtsToP4[0]) - p4.distance(closestPtsToP4[1]) > epsilon) {
+			return false;
+		}
+		
+		return true;
 	}
 	
 	public double computeArea() {
