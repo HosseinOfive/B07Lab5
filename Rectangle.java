@@ -86,13 +86,13 @@ public class Rectangle  {
 		Point[] closestPtsToP2 = getClosestPts(p2, p1, p3, p4);
 		Point[] closestPtsToP3 = getClosestPts(p3, p2, p1, p4);
 		Point[] closestPtsToP4 = getClosestPts(p4, p2, p3, p1);
-		if (p1.distance(closestPtsToP1[0]) - p1.distance(closestPtsToP1[1]) > epsilon) {
+		if (Math.abs(p1.distance(closestPtsToP1[0]) - p1.distance(closestPtsToP1[1])) > epsilon) {
 			return false;
-		} else if (p2.distance(closestPtsToP2[0]) - p2.distance(closestPtsToP2[1]) > epsilon) {
+		} else if (Math.abs(p2.distance(closestPtsToP2[0]) - p2.distance(closestPtsToP2[1])) > epsilon) {
 			return false;
-		} else if (p3.distance(closestPtsToP3[0]) - p3.distance(closestPtsToP3[1]) > epsilon) {
+		} else if (Math.abs(p3.distance(closestPtsToP3[0]) - p3.distance(closestPtsToP3[1])) > epsilon) {
 			return false;
-		} else if (p4.distance(closestPtsToP4[0]) - p4.distance(closestPtsToP4[1]) > epsilon) {
+		} else if (Math.abs(p4.distance(closestPtsToP4[0]) - p4.distance(closestPtsToP4[1])) > epsilon) {
 			return false;
 		}
 		
